@@ -6,14 +6,14 @@ import Pokemon from './Components/Pokemon'
 
 const App = () => {
   return (
-    <div>
+    <div className="container container-img">
       <Switch>
         <Route path={'/'} exact component={PokemonList} />
         <Route path={'/pokemon/:pokemon'} exact component={Pokemon} />
         <Redirect to={'/'} />
       </Switch>
     </div>
-  )
+  ) 
 }
 
 export default App
