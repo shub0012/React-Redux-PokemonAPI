@@ -1,11 +1,29 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import _ from 'lodash'
+import { Grid } from '@material-ui/core'
 import {GetPokemonList} from '../Redux/Actions/PokemonActions'
-import { Link } from 'react-router-dom'
 import ReactPaginate from 'react-paginate'
+import PokemonCard from './Card'
+import { makeStyles } from '@material-ui/core/styles'
+import clsx from 'clsx'
+
+const useStyles = makeStyles((theme) =>({
+    root: {
+        flexGrow: 1,
+        '& > *': {
+          margin: theme.spacing(1),
+        },
+      },
+      content: {
+        flexGrow: 1,
+        padding: theme.spacing(3),
+        
+      },
+  }));
 
 const PokemonList = (props) => {
+    const classes = useStyles()
     const dispatch = useDispatch()
     const pokemonList = useSelector(state => state.PokemonList)
     const [search, setSearch] = useState('')
@@ -15,7 +33,7 @@ const PokemonList = (props) => {
     }
 
     useEffect(() => {
-        fetchData(2)
+        fetchData()
     }, [])
     console.log(pokemonList.data)
     const showData = () => {
@@ -23,16 +41,19 @@ const PokemonList = (props) => {
             return <p>loading...</p>
         }
         if(!_.isEmpty(pokemonList.data)) {
-            return pokemonList.data.map(pokemon => {
-                return(
-                    <div>
-                        {pokemon.name}
-                        <img src={`https://img.pokemondb.net/artwork/large/${pokemon.name}.jpg`} alt={pokemon.name} height="240" width="240"/>
-                        <Link to={`/pokemon/${pokemon.name}`}>View More</Link>
-                    </div>
+            return (
+                <main className={clsx(classes.content)} >
+                <Grid container justify="center" spacing={2}>
+                {pokemonList.data.map(pokemon => {
+                return( 
+                    <Grid item key={pokemon.name} xs={12} sm={6} md={4} lg={3}>
+                        <PokemonCard pokemon={pokemon.name} />
+                    </Grid>
                 )
-            })
-        }
+            })}
+            </Grid>
+            </main>
+            )}
 
         if(pokemonList.errorMsg !== ""){
             return <p>{pokemonList.errorMsg}</p>
