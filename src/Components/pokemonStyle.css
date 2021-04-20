@@ -1,0 +1,91 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 80vh;
+  width: 80vw;
+  background: linear-gradient(
+    to right bottom,
+    rgba(255, 255, 235, 0.7),
+    rgba(255, 255, 255, 0.3)
+  );
+  border-radius: 2rem;
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.heading {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding-top: 0.5rem;
+  font-family: "Helvetica,Great Vibes";
+  color: #000;
+  font-size: 2rem;
+  font-weight: bold;
+  text-shadow: 0.5px 2px 0.5px sandybrown;
+  margin-bottom: 1.5rem;
+}
+
+.heading span {
+  margin: 0 10px;
+}
+
+.heading h2 {
+  font-weight: 500;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  color: rgb(152, 160, 161);
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  padding: 10px;
+  grid-template-areas: "item1 item2";
+  background-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  -webkit-backdrop-filter: blur(10px);
+  margin: 1rem;
+}
+.col1 {
+  grid-area: item1;
+  overflow: hidden;
+}
+
+.col2 {
+  grid-area: item2;
+}
+
+@media (max-width: 760px) {
+  .grid-container {
+    grid-template-areas: "item1 item1" "item2 item2";
+  }
+
+  .heading {
+    font-size: 1.5rem;
+  }
+}
+.grid-item {
+  padding: 20px;
+  font-size: 30px;
+  text-align: center;
+  border: 1px solid rgba(164, 243, 226, 0.808);
+  border-radius: 1rem;
+}
+
+.tableContainer {
+  background: transparent !important;
+}
+
+.tableHeader {
+  font-size: 1rem !important;
+  font-weight: bold !important;
+}
+
+.tableBody {
+  font-size: 0.8rem !important;
+  font-weight: bold !important;
+}

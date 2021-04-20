@@ -21,7 +21,7 @@ const useStyles = makeStyles({
         backdropFilter: 'blur( 6.0px )',
         borderRadius: '10px',
         border: '1px solid rgba( 255, 255, 255, 0.18 )',
-        WebkitBackdropFilter: 'blur(6.0px)'
+        WebkitBackdropFilter: 'blur(6.0px)',
     },
     cardImage: {
         background: 'transparent',
