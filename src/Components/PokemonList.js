@@ -7,6 +7,7 @@ import ReactPaginate from 'react-paginate'
 import PokemonCard from './Card'
 import { makeStyles } from '@material-ui/core/styles'
 import clsx from 'clsx'
+import './paginationStyle.css'
 
 const useStyles = makeStyles((theme) =>({
     root: {
@@ -18,7 +19,13 @@ const useStyles = makeStyles((theme) =>({
       content: {
         flexGrow: 1,
         padding: theme.spacing(3),
-        
+        minHeight: '100vh',
+        width: '100%',
+        background: 'linear-gradient(to right bottom, rgba(255, 255, 235, 0.7),rgba(255, 255, 255, 0.3))',
+        borderRradius: '2rem',
+        backdropFilter: 'blur( 6.0px )',
+        border: '1px solid rgba( 255, 255, 255, 0.18 )',
+        WebkitBackdropFilter: 'blur(6.0px)',
       },
   }));
 
@@ -35,7 +42,6 @@ const PokemonList = (props) => {
     useEffect(() => {
         fetchData()
     }, [])
-    console.log(pokemonList.data)
     const showData = () => {
         if(pokemonList.loading) {
             return <p>loading...</p>
@@ -70,14 +76,14 @@ const PokemonList = (props) => {
                 <button onClick={() => props.history.push(`/pokemon/${search}`)}>Search</button>
             </div>
             {showData()}
-            <div>
+            <div className="pagination">
                 {!_.isEmpty(pokemonList.data) && (
                     <ReactPaginate 
                         pageCount={Math.ceil(pokemonList.count) / 16}
                         pageRangeDisplayed={3}
                         marginPagesDisplayed={2}
                         onPageChange={(data) => fetchData(data.selected + 1)}
-                        containerClassName={"pagination"}
+                        containerClassName={"pagination-list"}
                     />
                 )}
             </div>

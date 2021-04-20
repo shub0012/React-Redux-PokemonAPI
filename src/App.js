@@ -6,13 +6,17 @@ import Pokemon from './Components/Pokemon'
 
 const App = () => {
   return (
-    <div className="container container-img">
-      <Switch>
+    <>
+    <main>
+      <section>
+        <Switch>
         <Route path={'/'} exact component={PokemonList} />
         <Route path={'/pokemon/:pokemon'} exact component={Pokemon} />
         <Redirect to={'/'} />
       </Switch>
-    </div>
+      </section> 
+    </main>
+    </>
   ) 
 }
 
