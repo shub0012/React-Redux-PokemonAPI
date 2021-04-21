@@ -14,7 +14,14 @@ const App = () => {
         <Route path={'/pokemon/:pokemon'} exact component={Pokemon} />
         <Redirect to={'/'} />
       </Switch>
+      <footer>
+        <div className="footer">
+            <a href="https://github.com/shub0012/React-Redux-PokemonAPI" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <p>shubhams4455@gmail.com</p>
+        </div>
+      </footer>
       </section> 
+      
     </main>
     </>
   ) 
