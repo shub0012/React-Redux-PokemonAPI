@@ -29,10 +29,10 @@ const useStyles = makeStyles({
         margin: '2px'
     },
     link:{
-        textDecoration: 'none',
-        color:'#000',
-        font: '12px',
-        fontWeight: 'bold'
+        textDecoration: 'none !important',
+        color:'#000 !important',
+        font: '12px !important',
+        fontWeight: 'bold !important'
     }
 });
 

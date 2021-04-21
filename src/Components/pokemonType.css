@@ -1,0 +1,51 @@
+.pokemonTypeContainer {
+  display: flex !important;
+  flex-direction: column;
+  height: 135vh;
+  width: 80vw !important;
+  background: linear-gradient(
+    to right bottom,
+    rgba(255, 255, 235, 0.7),
+    rgba(255, 255, 255, 0.3)
+  );
+  border-radius: 2rem;
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  -webkit-backdrop-filter: blur(6px);
+  margin-top: 80px;
+  padding: 1rem;
+}
+
+.pokemonType {
+  width: 99%;
+  padding: 0.7rem;
+  margin: 2px;
+  border: 1px solid rgba(32, 85, 43, 0.18);
+  font-size: 1.3rem;
+  background: linear-gradient(
+    to right bottom,
+    rgba(150, 209, 187, 0.7),
+    rgba(202, 180, 79, 0.3)
+  );
+  border-radius: 1.3rem;
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.navigation {
+  background-color: rgba(125, 193, 196, 0.1) !important;
+  box-shadow: 0 8px 32px 0 rgba(139, 182, 148, 0.37) !important;
+  backdrop-filter: blur(10px) !important;
+  border-radius: 10px !important;
+  border: 1px solid rgba(255, 255, 255, 0.18) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  margin-bottom: 1rem !important;
+}
+
+.linkText {
+  text-decoration: none !important;
+  font-weight: bold !important;
+  color: #000 !important;
+  cursor: pointer !important;
+}
