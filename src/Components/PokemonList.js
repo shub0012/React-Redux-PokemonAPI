@@ -1,14 +1,17 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import _ from 'lodash'
-import { Grid, AppBar, Toolbar, Button, Typography, InputBase  } from '@material-ui/core'
+import { Grid  } from '@material-ui/core'
 import {GetPokemonList} from '../Redux/Actions/PokemonActions'
 import ReactPaginate from 'react-paginate'
 import PokemonCard from './Card'
 import { makeStyles, fade } from '@material-ui/core/styles'
 import clsx from 'clsx'
-import SearchIcon from '@material-ui/icons/Search'
+import { Navbar, Nav, Form, Button,FormControl } from "react-bootstrap";
 import './paginationStyle.css'
+import { Link } from 'react-router-dom'
+
+
 
 const useStyles = makeStyles((theme) =>({
     root: {
@@ -123,29 +126,19 @@ const PokemonList = (props) => {
     return (
         <div>
             <div className={clsx(classes.root)}>
-                <AppBar position="sticky" className="navigation">
-                    <Toolbar>
-                        <Typography className={classes.title} variant="h6" noWrap >
-                            PokeDex
-                        </Typography>
-                    <div className={classes.search}>
-                        <div className={classes.searchIcon}>
-                            <SearchIcon />
-                        </div>
-                        <InputBase
-                            placeholder="Search…"
-                            classes={{
-                                root: classes.inputRoot,
-                                input: classes.inputInput,
-                            }}
-                            inputProps={{ 'aria-label': 'search'}}
-                            onChange={e => setSearch(e.target.value)}
-                        />
-                        <Button onClick={() => props.history.push(`/pokemon/${search}`)} variant="outlined" color="primary">Search</Button>
-                    </div>
-                    </Toolbar>
-                </AppBar>
-            
+              <Navbar collapseOnSelect expand="md" className="navigation" sticky="top" >
+              <Navbar.Brand href="/">PokeDex</Navbar.Brand>
+              <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+              <Navbar.Collapse id="responsive-navbar-nav">
+                <Nav className="mr-auto">
+                  <Nav.Link ><Link to="/types" className="linkText">Types</Link></Nav.Link>
+                </Nav>
+                <Form inline>
+                  <FormControl type="text" placeholder="Search" className="mr-sm-2" onChange={e => setSearch(e.target.value)} />
+                  <Button variant="outline-light" onClick={() => props.history.push(`/pokemon/${search}`)}>Search</Button>
+                </Form>
+              </Navbar.Collapse>
+              </Navbar>
             {showData()}
             <div className="pagination">
                 {!_.isEmpty(pokemonList.data) && (

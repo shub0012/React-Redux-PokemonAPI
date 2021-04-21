@@ -26,3 +26,11 @@
   border: 1px solid rgba(255, 255, 255, 0.18) !important;
   -webkit-backdrop-filter: blur(10px) !important;
 }
+
+.linkText {
+  text-decoration: none;
+  font-weight: 800;
+  color: #000;
+  cursor: pointer;
+  margin-right: 1rem;
+}

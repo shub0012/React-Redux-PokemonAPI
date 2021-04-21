@@ -4,9 +4,8 @@ import { GetPokemon } from '../Redux/Actions/PokemonActions'
 import { Bar } from 'react-chartjs-2'
 import _ from 'lodash'
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, AppBar, Toolbar, Typography } from '@material-ui/core'
-import './pokemonStyle.css'
 import { Link } from 'react-router-dom'
-
+import './pokemonStyle.css'
 const Pokemon = (props) => {
     const pokemonName = props.match.params.pokemon 
     const dispatch = useDispatch()
@@ -60,6 +59,7 @@ const Pokemon = (props) => {
                             }]
                         }}
                         options={{
+                            maintainAspectRatio : false,
                             legend: { display: true },
                             title: { display: true, text: `${pokemon.data[pokemonName].name} Stats`},
                             scales: {

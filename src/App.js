@@ -3,6 +3,7 @@ import './App.css'
 import { Switch, Route, Redirect } from "react-router-dom"
 import PokemonList from './Components/PokemonList'
 import Pokemon from './Components/Pokemon'
+import PokemonType from './Components/PokemonType'
 
 const App = () => {
   return (
@@ -12,6 +13,7 @@ const App = () => {
         <Switch>
         <Route path={'/'} exact component={PokemonList} />
         <Route path={'/pokemon/:pokemon'} exact component={Pokemon} />
+        <Route path={'/types'} exact component={PokemonType} />
         <Redirect to={'/'} />
       </Switch>
       <footer>
